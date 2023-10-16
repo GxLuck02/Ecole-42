@@ -22,7 +22,7 @@ int ft_strncmp(const char *first, const char *second, size_t len)
 
 
 
-
+/*
 int main()
 {
     const char  first[]= "Le chat blanc";
@@ -36,4 +36,4 @@ int main()
         printf("%s est égale à %s\n", first,second);
     else
         printf("%s est supérieure à %s\n", first,second);
-}
+}*/
