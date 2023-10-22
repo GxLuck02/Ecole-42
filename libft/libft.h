@@ -26,4 +26,8 @@ size_t	ft_strlen(const	char *word);
 char	*ft_strchr(const char	*string, int searchChar);
 
 char	*ft_strlcpy(char *dest, const char *src, size_t lenght);
+
+char	**ft_split(char const	*s, char c);
+
+char    *ft_itoa(int n);
 #endif
