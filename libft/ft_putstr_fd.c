@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttreichl <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: ttreichl <ttreichl@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 12:32:09 by ttreichl          #+#    #+#             */
-/*   Updated: 2023/10/10 12:37:15 by ttreichl         ###   ########.fr       */
+/*   Created: 2023/10/23 19:54:29 by ttreichl          #+#    #+#             */
+/*   Updated: 2023/10/23 19:54:29 by ttreichl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
+#include <stdlib.h>
 
-int	ft_isprint(int c)
+void ft_putstr_fd(char *s, ind fd)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	else
-		return (0);
+	write()
+}
+
+int main()
+{
+
 }

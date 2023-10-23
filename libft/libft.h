@@ -29,5 +29,5 @@ char	*ft_strlcpy(char *dest, const char *src, size_t lenght);
 
 char	**ft_split(char const	*s, char c);
 
-char    *ft_itoa(int n);
+char	*ft_itoa(int n);
 #endif
