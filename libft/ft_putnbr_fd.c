@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttreichl <ttreichl@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 19:54:29 by ttreichl          #+#    #+#             */
-/*   Updated: 2023/10/23 19:54:29 by ttreichl         ###   ########.fr       */
+/*   Created: 2023/10/23 20:56:03 by ttreichl          #+#    #+#             */
+/*   Updated: 2023/10/23 20:56:03 by ttreichl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	write(fd, s, ft_strlen(s));
+	char	*string;
+
+	if (n == -2147483648)
+		string = "-2147483648";
+	else
+		string = ft_itoa(n);
+	write(fd, string, ft_strlen(string));
+	if (n != INT32_MIN)
+		free(string);
 }
-
-/*
-int	main()
-{
-	int fd = 1;
-
-	char message[] = "Bonjour, monde !\n";
-	ft_putstr_fd(message, fd);
-
-	return 0;
-}
-*/

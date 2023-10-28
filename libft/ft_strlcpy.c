@@ -9,18 +9,43 @@
 /*   Updated: 2023/10/13 15:34:28 by ttreichl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
+/*
+#include <stdio.h>
 #include <string.h>
-
-char	*ft_strlcpy(char *dest, const char *src, size_t lenght)
+*/
+size_t	ft_strlcpy(char *dest, const char *src, size_t lenght)
 {
-	size_t	index;
+	unsigned int	i;
 
-	index = 0;
-	while (index < lenght && src[index] != '\0')
+	i = 0;
+	if (lenght == 0)
 	{
-		dest[index] = src[index];
-		index++;
+		i = ft_strlen(src);
+		return (i);
 	}
-	dest[index] = '\0';
-	return (dest);
+	while (src[i] && lenght - 1 > i)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	while (src[i])
+		i++;
+	return (i);
 }
+/*
+int main()
+{
+	char src[] = "Hello, World!";
+	char dest[20];
+	size_t length = 5;
+
+	ft_strlcpy(dest, src, length);
+
+	printf( "dest = %s\n", dest);
+
+
+	return 0;
+}
+*/

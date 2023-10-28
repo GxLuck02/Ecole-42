@@ -9,40 +9,47 @@
 /*   Updated: 2023/10/18 15:17:04 by ttreichl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
+#include "libft.h"
+/*
 #include <stdio.h>
-
+#include <string.h>
+*/
 void	*ft_memmove(void *dest, const void *src, size_t nbroct)
 {
-	char		*chardest;
-	const char	*charsrc;
-	int			index;
+	int	index;
 
-	chardest = dest;
-	charsrc = src;
+	if (!dest && !src)
+		return (NULL);
+	dest = (char *)dest;
+	src = (char *)src;
 	index = 0;
-	if (charsrc == chardest || nbroct == 0)
-		return (dest);
-	if (((charsrc + 1) == chardest) || ((charsrc - 1) == chardest))
-		return (dest);
+	if (src < dest && dest < src + nbroct)
+	{
+		while (nbroct > 0)
+		{
+			((char *)dest)[nbroct - 1] = ((char *)src)[nbroct - 1];
+			nbroct--;
+		}
+	}
 	else
 	{
-		while (nbroct > 0 && charsrc[index] != '\0')
+		while (nbroct > index)
 		{
-			chardest[index] = charsrc[index];
+			((char *)dest)[index] = ((char *)src)[index];
 			index++;
-			nbroct--;
 		}
 	}
 	return (dest);
 }
+
 /*
 int main()
 {
-	char src[]= "Sang Bleu";
-	char dest[10];
+	char src[]= "lorem ipsum dolor sit amet";
+	char *dest;
 
-	ft_memmove(dest, src, 9);
+	dest = src + 1;
+	ft_memmove(NULL, src, 5);
 	printf ("%s\n", dest);
 
 	return (0);

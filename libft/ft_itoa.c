@@ -9,8 +9,7 @@
 /*   Updated: 2023/10/20 15:10:19 by ttreichl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 size_t	nbrdigit(int n)
 {

@@ -9,20 +9,19 @@
 /*   Updated: 2023/10/18 13:32:09 by ttreichl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size)
 {
-	const unsigned char	*memb;
-	unsigned char		s;
+	unsigned char	*memb;
 
-	*memb = memoryBlock;
-	s = searchedChar;
-	while (size != 0)
+	memb = (unsigned char *)memoryBlock;
+	while (size > 0)
 	{
-		if (*memB == s)
-			return ((void *)memB);
-		memB++;
+		if (*memb == (unsigned char)searchedChar)
+			return (memb);
+		memb++;
+		size--;
 	}
 	return (0);
 }

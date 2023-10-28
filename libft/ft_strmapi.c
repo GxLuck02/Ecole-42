@@ -9,9 +9,7 @@
 /*   Updated: 2023/10/23 16:07:07 by ttreichl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -20,7 +18,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	index = 0;
 	newstring = malloc((ft_strlen(s) + 1) * sizeof(char));
-	printf("%zu\n", ft_strlen(s));
 	if (newstring == 0)
 		return (0);
 	while (s[index] != '\0')

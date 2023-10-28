@@ -9,39 +9,25 @@
 /*   Updated: 2023/10/18 13:18:45 by ttreichl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
-#include <stdio.h>
-#include <string.h>
-*/
+#include "libft.h"
+
+static int	comp_char(char c1, char c2)
+{
+	if (c1 != c2)
+		return ((unsigned char)c1 - (unsigned char)c2);
+	return (0);
+}
+
 int	ft_strncmp(const char *first, const char *second, size_t len)
 {
-	int	result;
+	size_t	i;
 
-	result = 0;
-	while (*first == *second && len > 0)
+	i = 0;
+	while ((first[i] || second[i]) && i < len && first[i] == second[i])
 	{
-		if (*first == '\0')
-			return (0);
-		first++;
-		second++;
-		len--;
+		i++;
 	}
-	if (len > 0)
-		result = *first - *second;
-	return (result);
+	if (i == len)
+		return (0);
+	return (comp_char(first[i], second[i]));
 }
-/*
-int main()
-{
-    const char  first[]= "Le chat nlanc";
-    const char  second[]= "Le chat boir";
-    int result2 = ft_strncmp(first, second, 9);
-
-    if (result2< 0)
-        printf("%s est inférieure à %s\n", first, second);
-    else if (result2== 0)
-        printf("%s est égale à %s\n", first,second);
-    else
-        printf("%s est supérieure à %s\n", first,second);
-}
-*/

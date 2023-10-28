@@ -9,7 +9,9 @@
 /*   Updated: 2023/10/11 18:42:07 by ttreichl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-void	*ft_memcpy(void *restrict dest, const void *restrict src, size_t nbroct)
+#include "libft.h"
+
+void	*ft_memcpy(void *dest, const void *src, size_t nbroct)
 {
 	int							index;
 	char		*restrict		chardest;
@@ -18,6 +20,10 @@ void	*ft_memcpy(void *restrict dest, const void *restrict src, size_t nbroct)
 	chardest = dest;
 	charsrc = src;
 	index = 0;
+	if (dest == NULL && src == NULL)
+	{
+		return (NULL);
+	}
 	while (nbroct != 0)
 	{
 		chardest[index] = charsrc[index];
@@ -26,3 +32,17 @@ void	*ft_memcpy(void *restrict dest, const void *restrict src, size_t nbroct)
 	}
 	return (dest);
 }
+/*
+int main()
+{
+	char *src_null = NULL;
+	char dest_null[10];
+	char *result = ft_memcpy(NULL, NULL, 17);
+	if (result == NULL) {
+		printf("Test 3: Copie depuis NULL réussie.\n");
+	} else {
+		printf("Test 3: Erreur - La copie depuis NULL aurait dû renvoyer NULL.\n");
+	}
+	return (0);
+}
+*/

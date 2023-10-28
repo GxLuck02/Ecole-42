@@ -9,9 +9,7 @@
 /*   Updated: 2023/10/23 19:25:59 by ttreichl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 #include "libft.h"
-#include <stdlib.h>
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
@@ -22,22 +20,12 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	index = 0;
 	while (s[index] != '\0')
 	{
-		f(index, s);
+		f(index, &s[index]);
 		index++;
 	}
 }
-/*
+
 static void	my_fonction(unsigned int index, char *adressechar)
 {
 	adressechar[index] = adressechar[index] - 32;
 }
-
-int main ()
-{
-	char	string[] = "silteplait";
-
-	ft_striteri(string, my_fonction);
-	printf("%s\n", string);
-	return (0);
-}
-*/

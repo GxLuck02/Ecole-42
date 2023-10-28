@@ -9,85 +9,95 @@
 /*   Updated: 2023/10/20 14:18:09 by ttreichl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
-static int	nbr_word(char const *s, char c)
-{
-	int	result;
+#include <stdio.h>
 
-	result = 0;
-	if (*s != c && *s)
-		result++;
-	while (*s != '\0')
+static int	ft_count_word(char const *s, char c)
+{
+	int	i;
+	int	word;
+
+	i = 0;
+	word = 0;
+	while (s && s[i])
 	{
-		if (*s == c)
+		if (s[i] != c)
 		{
-			result++;
-			while (*s == c)
-				s++;
+			word++;
+			while (s[i] != c && s[i])
+				i++;
 		}
 		else
-			s++;
+			i++;
 	}
-	return (result);
+	return (word);
 }
 
-static char	**assignment(int len)
+static int	ft_size_word(char const *s, char c, int i)
 {
-	char	**dest;
+	int	size;
 
-	dest = malloc((len + 1) * sizeof(char *));
-	if (dest == 0)
-		return (0);
-	return (dest);
-}
-
-char	**ft_split(char const	*s, char c)
-{
-	char	**tab_string;
-	int		index;
-	size_t	len;
-	int		nbword;
-
-	index = 0;
-	nbword = nbr_word(s, c);
-	tab_string = assignment(nbword);
-	while (nbword > 0)
+	size = 0;
+	while (s[i] != c && s[i])
 	{
-		len = ft_strchr(s, c) - s;
-		if (!ft_strchr(s, c))
-			len = ft_strlen(s);
-		tab_string[index] = malloc((len + 1) * sizeof(char));
-		if (*s != c)
+		size++;
+		i++;
+	}
+	return (size);
+}
+
+static void	ft_free(char **strs, int j)
+{
+	while (j-- > 0)
+		free(strs[j]);
+	free(strs);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		i;
+	int		word;
+	char	**strs;
+	int		size;
+	int		j;
+
+	i = 0;
+	j = -1;
+	word = ft_count_word(s, c);
+	strs = (char **)malloc((word + 1) * sizeof(char *));
+	if (!strs)
+		return (NULL);
+	while (++j < word)
+	{
+		while (s[i] == c)
+			i++;
+		size = ft_size_word(s, c, i);
+		strs[j] = ft_substr(s, i, size);
+		if (!strs[j])
 		{
-			ft_strlcpy(tab_string[index], s, len);
-			nbword--;
-			index++;
+			ft_free(strs, j);
+			return (NULL);
 		}
-		s += len + 1;
+		i += size;
 	}
-	tab_string[index] = 0;
-	return (tab_string);
+	strs[j] = 0;
+	return (strs);
 }
+
 /*
-int	main()
-{
-	char const	input_string[] = "Hello, world, how, are,, you!";
+int	main() {
+	char const input_string[] = "      split       this for   me  !";
 
-	char **result = ft_split(input_string, ',');
+	char **result = ft_split(input_string, ' ');
 
-	if (result)
-	{
-		for (int i = 0; result[i] != NULL; i++)
-		{
+	if (result) {
+		for (int i = 0; result[i] != NULL; i++) {
 			printf("Element %d: %s\n", i, result[i]);
 			free(result[i]);
 		}
 		free(result);
-	}
-	else
+	} else
 		printf("Erreur d'allocation mémoire.\n");
 
 	return (0);

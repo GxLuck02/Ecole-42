@@ -9,40 +9,55 @@
 /*   Updated: 2023/10/18 16:48:09 by ttreichl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "libft.h"
+/*
+#include <stdio.h>
+#include <string.h>
+*/
 
 char	*ft_substr(char const	*s, unsigned int start, size_t len)
 {
 	char	*newstring;
 	char	*final;
 
-	newstring = malloc((len) * sizeof (char));
+	newstring = malloc((len + 1) * sizeof (char));
 	final = newstring;
 	if (newstring == 0)
 		return (0);
-	while (start != 0)
+	if (s == NULL)
+		return (NULL);
+	while (start != 0 && ft_strlen(s) + 1 > start && *s != '\0')
 	{
-		src++;
+		s++;
 		start--;
 	}
-	while (len > 0)
+	while (len > 0 && ft_strlen(s) + 1 > start && *s != '\0')
 	{
-		*newstring = *src;
+		*newstring = *s;
 		newstring++;
-		src++;
+		s++;
 		len--;
 	}
 	*newstring = '\0';
 	return (final);
 }
+
 /*
 int main()
 {
-	char	start[]= "La meilleur couleur est le bleu.";
+	char *s = "tripouille";
+	char *substr = ft_substr(s, 0, 42000);
 
-	char	*result = ft_substr(start, 27, 4);
-	printf("%s\n", result);
+	if (substr != NULL)
+	{
+		printf("Substring: %s\n", substr);
+		free(substr); // Ne pas oublier de libérer la mémoire allouée
+	}
+	else
+	{
+		printf("Erreur lors de l'allocation de la sous-chaîne.\n");
+	}
 
-	free(result);
+	return 0;
 }
  */
