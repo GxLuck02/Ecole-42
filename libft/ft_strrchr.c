@@ -26,7 +26,7 @@ char	*ft_strrchr(const char	*string, int searchChar)
 			lastocurrence = string;
 		string++;
 	}
-	if (searchChar == '\0')
+	if ((char)searchChar == '\0')
 		return ((char *)string);
 	return ((char *)lastocurrence);
 }

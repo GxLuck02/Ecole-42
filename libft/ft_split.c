@@ -54,34 +54,45 @@ static void	ft_free(char **strs, int j)
 	free(strs);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**newstrings(char const *s, char c, char **dest, int nbrwords)
 {
-	int		i;
-	int		word;
-	char	**strs;
-	int		size;
-	int		j;
+	int	i;
+	int	j;
+	int	size;
 
 	i = 0;
 	j = -1;
-	word = ft_count_word(s, c);
-	strs = (char **)malloc((word + 1) * sizeof(char *));
-	if (!strs)
-		return (NULL);
-	while (++j < word)
+	while (++j < nbrwords)
 	{
 		while (s[i] == c)
 			i++;
 		size = ft_size_word(s, c, i);
-		strs[j] = ft_substr(s, i, size);
-		if (!strs[j])
+		dest[j] = ft_substr(s, i, size);
+		if (!dest[j])
 		{
-			ft_free(strs, j);
+			ft_free(dest, j);
 			return (NULL);
 		}
 		i += size;
 	}
-	strs[j] = 0;
+	dest[j] = 0;
+	return (dest);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		word;
+	char	**strs;
+
+	word = ft_count_word(s, c);
+	strs = (char **)malloc((word + 1) * sizeof(char *));
+	if (!strs)
+		return (NULL);
+	if (newstrings(s, c, strs, word) == NULL)
+	{
+		ft_free(strs, word);
+		return (NULL);
+	}
 	return (strs);
 }
 

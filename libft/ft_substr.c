@@ -18,13 +18,15 @@
 char	*ft_substr(char const	*s, unsigned int start, size_t len)
 {
 	char	*newstring;
-	char	*final;
+	int		i;
 
-	newstring = malloc((len + 1) * sizeof (char));
-	final = newstring;
-	if (newstring == 0)
-		return (0);
-	if (s == NULL)
+	i = 0;
+	if ((size_t)start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s))
+		len = ft_strlen(s);
+	newstring = ft_calloc((len + 1), sizeof (char ));
+	if (s == NULL || newstring == NULL)
 		return (NULL);
 	while (start != 0 && ft_strlen(s) + 1 > start && *s != '\0')
 	{
@@ -33,13 +35,13 @@ char	*ft_substr(char const	*s, unsigned int start, size_t len)
 	}
 	while (len > 0 && ft_strlen(s) + 1 > start && *s != '\0')
 	{
-		*newstring = *s;
-		newstring++;
+		newstring[i] = *s;
+		i++;
 		s++;
 		len--;
 	}
-	*newstring = '\0';
-	return (final);
+	newstring[i] = '\0';
+	return (newstring);
 }
 
 /*
@@ -60,4 +62,4 @@ int main()
 
 	return 0;
 }
- */
+*/

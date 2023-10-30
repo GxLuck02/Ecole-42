@@ -15,18 +15,21 @@ char	*ft_strnstr(const char *string, const char *needle, size_t len)
 {
 	const char	*temp_string;
 	const char	*temp_needle;
+	size_t		temp_len;
 
-	if (len == 0 && ft_strlen(needle) == 0)
+	if (len == 0 && ft_strlen(needle) == 0 || *needle == '\0')
 		return ((char *)string);
 	while (*string != '\0' && len > 0)
 	{
 		temp_string = string;
 		temp_needle = needle;
-		while (*temp_string == *temp_needle && *temp_needle != '\0' && len > 0)
+		temp_len = len;
+		while (*temp_string == *temp_needle && *temp_needle != '\0'
+			&& temp_len > 0)
 		{
 			temp_string++;
 			temp_needle++;
-			len--;
+			temp_len--;
 		}
 		if (*temp_needle == '\0')
 			return ((char *)string);
