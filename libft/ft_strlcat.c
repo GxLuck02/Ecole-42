@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttreichl <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: ttreichl <ttreichl@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:37:18 by ttreichl          #+#    #+#             */
 /*   Updated: 2023/10/13 16:45:02 by ttreichl         ###   ########.fr       */

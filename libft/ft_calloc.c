@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttreichl <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: ttreichl <ttreichl@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:05:22 by ttreichl          #+#    #+#             */
 /*   Updated: 2023/10/18 15:11:39 by ttreichl         ###   ########.fr       */

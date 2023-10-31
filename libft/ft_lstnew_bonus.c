@@ -22,26 +22,3 @@ t_list	*ft_lstnew(void *content)
 	new->next = NULL;
 	return (new);
 }
-
-/*
-int main(void)
-{
-	// Création d'un nouvel élément de liste
-	int data = 42; // Exemple de donnée, peut être n'importe quel type
-	t_list *new_element = ft_lstnew(&data);
-
-	if (new_element != NULL)
-	{
-		printf("Contenu de l'élément : %d\n", *((int *)new_element->content));
-
-		// Libérer la mémoire allouée
-		free(new_element);
-	}
-	else
-	{
-		printf("Erreur lors de la création de l'élément.\n");
-	}
-
-	return 0;
-}
- */
