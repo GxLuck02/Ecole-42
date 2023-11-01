@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttreichl <ttreichl@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 15:22:38 by ttreichl          #+#    #+#             */
-/*   Updated: 2023/10/30 15:22:38 by ttreichl         ###   ########.fr       */
+/*   Created: 2023/10/31 13:01:32 by ttreichl          #+#    #+#             */
+/*   Updated: 2023/11/01 16:37:18 by ttreichl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*new;
+	int	result;
 
-	new = (t_list *)malloc (sizeof (*new));
-	if (new == 0)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	result = 0;
+	while (lst)
+	{
+		lst = lst -> next;
+		result++;
+	}
+	return (result);
 }

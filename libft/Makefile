@@ -24,9 +24,9 @@ SRCS			=	ft_memcmp.c ft_strdup.c ft_split.c ft_strlcpy.c ft_isalnum.c ft_putnbr_
 					ft_substr.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c \
 					ft_strtrim.c ft_atoi.c ft_putchar_fd.c
 
-B_SRC			= 	ft_lstnew_bonus.c ft_lstsize_bonus.c ft_lstadd_front_bonus.c ft_lstlast_bonus.c \
-					ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c\
-					ft_lstmap_bonus.c
+B_SRC			= 	ft_lstnew.c ft_lstsize.c ft_lstadd_front.c ft_lstlast.c \
+					ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c\
+					ft_lstmap.c
 
 OBJS			=	$(SRCS:.c=.o)
 
