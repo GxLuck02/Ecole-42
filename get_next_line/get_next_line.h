@@ -29,9 +29,8 @@ typedef struct list
 }				t_list;
 
 void	*ft_calloc(size_t nbrelement, size_t elementsize);
-void	ft_bzero(void *ptr, size_t nbroct);
-void	*ft_memset(void *ptr, int value, size_t len);
 char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *word);
+void	dellist(t_list **list);
 
 #endif

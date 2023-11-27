@@ -15,17 +15,31 @@ char	*get_line(t_list *list)
 {
 	int		len;
 	char	*nextstring;
+	int		i;
+	int		j;
 
+	i = 0;
 	len = 0;
 	while (list->next != NULL)
 	{
-		len += ft_strlen(list->storage);
+		len += (int)ft_strlen(list->storage);
 		list = list->next;
 	}
+	nextstring = ft_calloc(len + 1, sizeof (char));
+	if (nextstring == NULL)
+		return (NULL);
 	while (list->next != NULL)
 	{
-		nextstring[i] = list->storage[j];
+		j = 0;
+		while (list->storage[j] != '\0')
+		{
+			nextstring[i] = list->storage[j];
+			i++;
+			j++;
+		}
+		list = list->next;
 	}
+	return (nextstring);
 }
 
 int	find_new_line(t_list *list)
@@ -76,7 +90,7 @@ void	creatlist(t_list **list, int fd)
 		buf = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 		if (buf == NULL)
 			return ;
-		char_read = read(fd, buf, BUFFER_SIZE);
+		char_read = (int)read(fd, buf, BUFFER_SIZE);
 		if (char_read == 0)
 		{
 			free(buf);
@@ -90,17 +104,17 @@ void	creatlist(t_list **list, int fd)
 char	*get_next_line(int fd)
 {
 	static t_list	*list;
-	char			*next_line
+	char			*next_line;
 
-	*list = NULL;
 	creatlist(&list, fd);
 	if (list == NULL)
 		return (0);
 	next_line = get_line(list);
-
+	dellist(&list);
+	return (next_line);
 }
 
-int main()
+int	main(void)
 {
 	int		fd;
 	char	*line;

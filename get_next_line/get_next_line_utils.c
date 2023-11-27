@@ -3,33 +3,21 @@
 void	*ft_calloc(size_t nbrelement, size_t elementsize)
 {
 	void	*tableau_malloc;
-
-	tableau_malloc = (void *)malloc(nbrelement * elementsize);
-	if (tableau_malloc == 0)
-		return (0);
-	ft_bzero(tableau_malloc, nbrelement * elementsize);
-	return (tableau_malloc);
-}
-
-void	ft_bzero(void *ptr, size_t nbroct)
-{
-	ft_memset(ptr, 0, nbroct);
-}
-
-void	*ft_memset(void *ptr, int value, size_t len)
-{
 	int		index;
 	char	*charptr;
 
-	charptr = ptr;
 	index = 0;
-	while (len != 0)
+	tableau_malloc = (void *)malloc(nbrelement * elementsize);
+	if (tableau_malloc == 0)
+		return (0);
+	charptr = tableau_malloc;
+	while (nbrelement != 0)
 	{
-		charptr[index] = (char)value;
-		len --;
+		charptr[index] = (char)0;
+		nbrelement --;
 		index++;
 	}
-	return (ptr);
+	return (tableau_malloc);
 }
 
 char	*ft_strdup(const char *src)
@@ -64,4 +52,19 @@ size_t	ft_strlen(const char *word)
 		nbrchar++;
 	}
 	return (nbrchar);
+}
+
+void	dellist(t_list **list)
+{
+	t_list	*current_node;
+	t_list	*next_node;
+
+	current_node = *list;
+	while (current_node != NULL)
+	{
+		free(current_node->storage);
+		next_node = current_node->next;
+		free(current_node);
+		current_node = next_node;
+	}
 }
