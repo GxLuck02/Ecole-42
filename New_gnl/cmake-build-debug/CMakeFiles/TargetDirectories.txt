@@ -1,3 +1,0 @@
-/Users/ttreichl/CLionProjects/New_gnl/cmake-build-debug/CMakeFiles/get_next_lines.dir
-/Users/ttreichl/CLionProjects/New_gnl/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/ttreichl/CLionProjects/New_gnl/cmake-build-debug/CMakeFiles/rebuild_cache.dir
